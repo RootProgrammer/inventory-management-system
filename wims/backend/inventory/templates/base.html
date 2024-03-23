@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}WIMS{% endblock %}</title>
+</head>
+<body>
+<header>
+    <nav>
+        <!-- Debugging User State -->
+        <p>User Authenticated: {{ user.is_authenticated }}</p>
+        <!-- Navigation Links -->
+        <ul>
+            {% if not user.is_authenticated %}
+            <li><a href="{% url 'signup' %}" target="_blank">Signup</a></li>
+            <li><a href="{% url 'login' %}" target="_blank">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+{% block content %}
+{% endblock %}
+
+<footer>
+    <!-- Footer Content -->
+</footer>
+</body>
+</html>
